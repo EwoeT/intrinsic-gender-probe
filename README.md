@@ -7,8 +7,8 @@
 -data_types: "attributes" for generating tokens for attributes or "stereotypes" for generating tokens for stereotypes. Use attribute for training the detector and stereotypes to test for bias only <br/>
 -data_path: path to data <br/>
 -save_tokenized_data_path: path to save tokenized data <br/>
--female_attributes_path: path to female attributes <br/>
--male_attributes_path: path to male attributes  <br/>
+-female_list_path: path to female list (attributes or stereotypes) <br/>
+-male_list_path: path to male attributes (attributes or stereotypes) <br/>
 -all_attributes_and_names_path: path to file containing female and male attributes and names to exclude from sentences containing stereotypes (optional). Removes gender from the context of stereotypes
 -sequence_length: max number of tokens to generate per sentence (optional, default: 4) <br/>
 
@@ -18,8 +18,9 @@
 -model_type "bert-large" \
 -data_path "data/data.txt" \
 -data_type "stereotypes" \
--female_attributes_path 'data/female_attributes.txt' \
--male_attributes_path 'data/male_attributes.txt'
+-female_list_path 'data/female_attributes.txt' \
+-male_list_path 'data/male_attributes.txt' \
+-all_attributes_and_names_path 'all_attributes_and_names.txt''
 ```
 
 ## 3. Train gender detector: Run gender_attribute_classifier.py to train embedding gender detector. 
