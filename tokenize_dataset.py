@@ -16,8 +16,9 @@ parser = argparse.ArgumentParser()
 parser.add_argument("-model_type", required=True)
 parser.add_argument("-data_path", required=True)
 parser.add_argument("-data_type", required=True)
-parser.add_argument("-female_attributes_path", required=True)
-parser.add_argument("-male_attributes_path", required=True)
+parser.add_argument("-female_list_path", required=True)
+parser.add_argument("-male_list_path", required=True)
+parser.add_argument("-all_attributes_and_names_path")
 parser.add_argument("-sequence_length", type=int, default=100)
 parser.add_argument("-save_tokenized_data_path", default="tokenized_data.pt")
 args = parser.parse_args()
@@ -28,8 +29,9 @@ print(config)
 model_type = args.model_type
 data_path = args.data_path
 data_type = args.data_type
-female_attributes_path = args.female_attributes_path
-male_attributes_path = args.male_attributes_path
+female_list_path = args.female_list_path
+male_list_path = args.male_list_path
+all_attributes_and_names_path = args.all_attributes_and_names_path
 save_tokenized_data_path = args.save_tokenized_data_path
 seq_len = args.sequence_length
 
@@ -52,20 +54,28 @@ data = np.array(data.split("\n"))
 print(data.shape)
 
 # female_attribute_list
-female_attribute = open(female_attributes_path, "r") 
-f_data = female_attribute.read()
-female_attribute_list = f_data.split("\n")
+female_words = open(female_list_path, "r") 
+f_data = female_words.read()
+female_list = f_data.split("\n")
 # print(female_attribute_list)
-female_attribute.close()
+female_words.close()
 
 
 # male_attribute_list
-male_attribute = open(male_attributes_path, "r")
-m_data = male_attribute.read()
-male_attribute_list = m_data.split("\n")
+male_words = open(male_list_path, "r") 
+m_data = male_words.read()
+male_list = m_data.split("\n")
 # print(male_attribute_list)
-male_attribute.close()
+male_words.close()
 
+try:
+    all_attribute = open(all_attributes_and_names_path, "r") 
+    data = all_attribute.read()
+    all_attribute_list = data.split("\n")
+    # print(all_attribute_list)
+    all_attribute.close()
+except:
+    all_attribute_list = []
 
 # import tokenizer
 if model_type=="albert-large":
@@ -115,8 +125,8 @@ def tokenize(data):
 
 
         # get male and female stereopyes
-        train_female_attributes_ids = get_attributes_ids(female_attribute_list[:int(0.8*len(female_attribute_list))])
-        train_male_attributes_ids = get_attributes_ids(male_attribute_list[:int(0.8*len(male_attribute_list))])
+        train_female_attributes_ids = get_attributes_ids(female_list[:int(0.8*len(female_list))])
+        train_male_attributes_ids = get_attributes_ids(male_list[:int(0.8*len(male_list))])
         print("female_attributes_ids: ", train_female_attributes_ids, "\n")
         print("male_attributes_ids: ", train_male_attributes_ids)
 
@@ -180,8 +190,8 @@ def tokenize(data):
 
 
         # get male and female stereopyes
-        female_stereotype_ids = get_setreotype_ids(female_stereotype_list)
-        male_stereotype_ids = get_setreotype_ids(male_stereotype_list)
+        female_stereotype_ids = get_setreotype_ids(female_list)
+        male_stereotype_ids = get_setreotype_ids(male_list)
         female_stereotype_dict = { i : 0 for i in female_stereotype_ids }
         male_stereotype_dict = { i : 0 for i in male_stereotype_ids }
         print(female_stereotype_ids, "\n")
