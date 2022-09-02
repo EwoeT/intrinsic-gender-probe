@@ -66,7 +66,7 @@ if model_type=="bert-large":
     import bert_large_model
     import importlib
     importlib.reload(bert_large_model)
-    BertForSequenceClassification = bert_large_model.AlbertForSequenceClassification
+    BertForSequenceClassification = bert_large_model.BertForSequenceClassification
     try:
         model = BertForSequenceClassification.from_pretrained("bert-large-uncased", state_dict=torch.load(model_path), num_labels = 2)
     except:
