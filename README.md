@@ -1,11 +1,11 @@
 # intrinsic_gender_probe
-
+```
 !python gender_attribute_classifier.py \
 -model_type "albert-large" \
 -model_path "../../CDA/counterfactual-data-substitution-master/zari-albert-cda/pytorch_model.bin" \
 -epochs 4 -train_data_path '../bias_in_bios/bias_in_bios_classifier_fine_tuned_embeddings/intrinsic_bias/datasets/albert_large/train_attributes_datasets_seed_42_albert_large.pt' \
 -val_data_path '../bias_in_bios/bias_in_bios_classifier_fine_tuned_embeddings/intrinsic_bias/datasets/albert_large/test_attributes_datasets_seed_42_albert_large.pt'
-
+```
 Bert model is adapted from huggingface https://huggingface.co/transformers/model_doc/bert.html
 Bert fine-tuning codes are adapted from:https://mccormickml.com/2019/07/22/BERT-fine-tuning/
 
