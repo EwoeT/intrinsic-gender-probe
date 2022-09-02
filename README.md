@@ -1,7 +1,23 @@
 # intrinsic_gender_probe
 
 ## 1. Data prep
-## 2. Data tokenization
+## 2. Data tokenization:Tokenize sentences; positional indices of attribute/target words are kept for embedding extraction.
+-model_type: type of model "albert-large" or "bert-large <br/>
+-data_path: path to data <br/>
+-save_tokenized_data_path: path to save tokenized data <br/>
+-female_attributes_path: path to female attributes <br/>
+-male_attributes_path: path to male attributes  <br/>
+-sequence_length: max number of tokens to generate per sentence (optional, default: 4) <br/>
+
+- Example:
+```
+!python tokenize_dataset.py \
+-model_type "bert-large" \
+-data_path "data/data.txt" \
+-female_attributes_path 'data/female_attributes.txt' \
+-male_attributes_path 'data/male_attributes.txt'
+```
+
 ## 3. Train gender detector: Run gender_attribute_classifier.py to train embedding gender detector. 
 - Args: <br/>
 -model_type: type of model "albert-large" or "bert-large <br/>
