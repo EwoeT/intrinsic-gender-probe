@@ -1,6 +1,6 @@
 # intrinsic_gender_probe
 
-Run gender_attribute_classifier.py to train embedding gender detector. Args: 
+2. Train gender detector: Run gender_attribute_classifier.py to train embedding gender detector. Args: 
 -model_type: type of model "albert-large" or "bert-large
 - model_path: path to model
 - save_model_path: path to save model
