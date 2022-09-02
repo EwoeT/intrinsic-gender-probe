@@ -9,6 +9,7 @@
 -save_tokenized_data_path: path to save tokenized data <br/>
 -female_attributes_path: path to female attributes <br/>
 -male_attributes_path: path to male attributes  <br/>
+-all_attributes_and_names_path: path to file containing female and male attributes and names to exclude from sentences containing stereotypes (optional). Removes gender from the context of stereotypes
 -sequence_length: max number of tokens to generate per sentence (optional, default: 4) <br/>
 
 - Example:
