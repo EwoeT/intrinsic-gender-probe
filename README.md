@@ -6,6 +6,17 @@
 -epochs 4 -train_data_path '../bias_in_bios/bias_in_bios_classifier_fine_tuned_embeddings/intrinsic_bias/datasets/albert_large/train_attributes_datasets_seed_42_albert_large.pt' \
 -val_data_path '../bias_in_bios/bias_in_bios_classifier_fine_tuned_embeddings/intrinsic_bias/datasets/albert_large/test_attributes_datasets_seed_42_albert_large.pt'
 ```
+
+
+# Requirements
+torch
+transformers==4.21.2
+tensorflow as tf
+numpy
+
+
+
+
 Bert model is adapted from huggingface https://huggingface.co/transformers/model_doc/bert.html
 Bert fine-tuning codes are adapted from:https://mccormickml.com/2019/07/22/BERT-fine-tuning/
 
@@ -15,6 +26,3 @@ Bert fine-tuning codes are adapted from:https://mccormickml.com/2019/07/22/BERT-
 - 4_generate_neutral_latent_representation.ipynb: Generates disentangled (neutral) latent representation
 - 5_bias_mitigation_MLM.ipynb: Main style transfer code
 - 6_TEST_bias_mitigation_MLM.ipynb: Code for evaluation
-
-# Requirements
-transformers==4.10.0
