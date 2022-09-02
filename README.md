@@ -12,7 +12,7 @@
 -epochs: number of epochs (optional, default: 4) <br/>
 -batch_size: batch_size (optional, default: 32) <br/>
 
-- Example: <br/>
+- Example:
 
 ```
 !python gender_attribute_classifier.py \
