@@ -1,4 +1,5 @@
-# import tensorflow as tf
+# Code adapted from https://mccormickml.com/2019/07/22/BERT-fine-tuning/
+
 import numpy as np
 import torch
 import random
@@ -12,9 +13,6 @@ from torch.nn import CrossEntropyLoss, MSELoss
 import albert_large_model
 import importlib
 from tqdm.notebook import tqdm
-
-
-
 import argparse
 
 parser = argparse.ArgumentParser()
@@ -25,10 +23,6 @@ parser.add_argument("-val_data_path", required=True)
 parser.add_argument("-save_model_path", default="gender_classifier.pth")
 parser.add_argument("-epochs", type=int, default=4)
 parser.add_argument("-batch_size", type=int, default=32)
-# parser.add_argument("--ignore-existing", action="store_true", help="skip files that exist")
-# parser.add_argument("--exclude", help="files to exclude")
-# parser.add_argument("src", help="Source location")
-# parser.add_argument("dest", help="Destination location")
 args = parser.parse_args()
 config = vars(args)
 print(config)
@@ -44,8 +38,6 @@ batch_size = args.batch_size
 train_data_path = args.train_data_path
 val_data_path = args.val_data_path
 save_model_path = args.save_model_path
-# batch_size = args.batch_size
-# device = args.device
 
 
 
@@ -66,16 +58,20 @@ if model_type=="albert-large":
     try:
         model = AlbertForSequenceClassification.from_pretrained("albert-large-v2", state_dict=torch.load(model_path), num_labels = 2)
     except:
-        model = AlbertForSequenceClassification.from_pretrained("bert-base-uncased", num_labels = 2)
+        model = AlbertForSequenceClassification.from_pretrained("albert-large-v2", num_labels = 2)
         model.albert.load_state_dict(torch.load(model_path).albert.state_dict())
     model.to(device)
 
-    # AlbertForSequenceClassification = albert_large_model.AlbertForSequenceClassification
-    # model = AlbertForSequenceClassification.from_pretrained("albert-large-v2", num_labels = 2)
-    # model.to(device)
 if model_type=="bert-large":
+    import bert_large_model
+    import importlib
+    importlib.reload(bert_large_model)
     BertForSequenceClassification = bert_large_model.AlbertForSequenceClassification
-    model = BertForSequenceClassification.from_pretrained("bert-large-uncased", num_labels = 2)
+    try:
+        model = BertForSequenceClassification.from_pretrained("bert-large-uncased", state_dict=torch.load(model_path), num_labels = 2)
+    except:
+        model = BertForSequenceClassification.from_pretrained("bert-large-uncased", num_labels = 2)
+        model.bert.load_state_dict(torch.load(model_path).bert.state_dict())
     model.to(device)
 
 
@@ -95,19 +91,10 @@ from torch.utils.data import DataLoader, RandomSampler, SequentialSampler
 
 
 
-# importlib.reload(albert_large_model)
-# AlbertForSequenceClassification = albert_large_model.AlbertForSequenceClassification
-
-
 optimizer = AdamW(filter(lambda p: p.requires_grad, model.parameters()),
                   lr = 2e-5, # args.learning_rate - default is 5e-5, our notebook had 2e-5
                   eps = 1e-8 # args.adam_epsilon  - default is 1e-8.
                 )
-
-# The DataLoader needs to know our batch size for training, so we specify it 
-# here. For fine-tuning BERT on a specific task, the authors recommend a batch 
-# size of 16 or 32.
-# batch_size = 32
 
 # Create the DataLoaders for our training and validation sets.
 # We'll take training samples in random order. 
@@ -127,10 +114,6 @@ validation_dataloader = DataLoader(
 
 from transformers.optimization import get_linear_schedule_with_warmup
 
-# Number of training epochs. The BERT authors recommend between 2 and 4. 
-# We chose to run for 4, but we'll see later that this may be over-fitting the
-# training data.
-# epochs = 4
 
 # Total number of training steps is [number of batches] x [number of epochs]. 
 # (Note that this is not the same as the number of training samples).
