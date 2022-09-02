@@ -11,7 +11,7 @@
 - epochs: number of epochs (optional, default: 4)
 - batch_size: batch_size (optional, default: 32)
 <br/>
-Example:
+Example: <br/>
 ```
 !python gender_attribute_classifier.py \
 -model_type "albert-large" \
