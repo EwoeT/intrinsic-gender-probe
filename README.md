@@ -10,8 +10,8 @@
 - val_data_path: path to val tokenized data 
 - epochs: number of epochs (optional, default: 4)
 - batch_size: batch_size (optional, default: 32)
+- Example:
 ```
-4. Evaluate on stereotypes
 !python gender_attribute_classifier.py \
 -model_type "albert-large" \
 -model_path "albert-cda/pytorch_model.bin" \
@@ -19,7 +19,7 @@
 -train_data_path 'albert_large/train_attributes_datasets_seed_42_albert_large.pt' \
 -val_data_path 'albert_large/test_attributes_datasets_seed_42_albert_large.pt'
 ```
-
+4. Evaluate on stereotypes
 
 # Requirements
 torch==1.12.1 <br/>
