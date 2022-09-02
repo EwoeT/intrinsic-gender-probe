@@ -2,7 +2,8 @@
 
 ## 1. Data prep
 ## 2. Data tokenization
-## 3. Train gender detector: Run gender_attribute_classifier.py to train embedding gender detector. Args: 
+## 3. Train gender detector: Run gender_attribute_classifier.py to train embedding gender detector. 
+- Args: <br/>
 -model_type: type of model "albert-large" or "bert-large <br/>
 -model_path: path to model <br/>
 -save_model_path: path to save model <br/>
@@ -10,8 +11,7 @@
 -val_data_path: path to val tokenized data  <br/>
 -epochs: number of epochs (optional, default: 4) <br/>
 -batch_size: batch_size (optional, default: 32) <br/>
-<br/>
-Example: <br/>
+- Example: <br/>
 
 ```
 !python gender_attribute_classifier.py \
