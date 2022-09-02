@@ -16,6 +16,7 @@
 !python tokenize_dataset.py \
 -model_type "bert-large" \
 -data_path "data/data.txt" \
+-data_type "stereotypes" \
 -female_attributes_path 'data/female_attributes.txt' \
 -male_attributes_path 'data/male_attributes.txt'
 ```
