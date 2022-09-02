@@ -9,10 +9,10 @@
 
 
 # Requirements
-torch
-transformers==4.21.2
-tensorflow as tf
-numpy
+torch <br/>
+transformers==4.21.2 <br/>
+tensorflow <br/>
+numpy<br/>
 
 
 
