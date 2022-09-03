@@ -1,4 +1,6 @@
 # intrinsic_gender_probe
+We use code from https://github.com/kanekomasahiro/context-debias/blob/main/script/preprocess.sh to extract senteces containing attribute abd stereotype words. <br/>
+Extracted sentences are available https://drive.google.com/drive/folders/1dT62-X2mDBjpe8yvd6flJizeF8mcbPpN?usp=sharing
 
 ## 1. Data prep
 ## 2. Data tokenization
