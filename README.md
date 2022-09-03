@@ -1,7 +1,8 @@
 # intrinsic_gender_probe
 
 ## 1. Data prep
-## 2. Data tokenization:Tokenize sentences; positional indices of attribute/target words are kept for embedding extraction.
+## 2. Data tokenization
+- Tokenize sentences; positional indices of attribute/target words are kept for embedding extraction. <br/>
 - Args: <br/>
 -model_type: type of model "albert-large" or "bert-large <br/>
 -data_types: "attributes" for generating tokens for attributes or "stereotypes" for generating tokens for stereotypes. Use attribute for training the detector and stereotypes to test for bias only <br/>
@@ -23,7 +24,8 @@ python tokenize_dataset.py \
 -all_attributes_and_names_path 'all_attributes_and_names.txt''
 ```
 
-## 3. Train gender detector: Run gender_attribute_classifier.py to train embedding gender detector. 
+## 3. Train gender detector
+- Run gender_attribute_classifier.py to train embedding gender detector.  <br/>
 - Args: <br/>
 -model_type: type of model "albert-large" or "bert-large <br/>
 -model_path: path to model <br/>
@@ -43,6 +45,8 @@ python gender_attribute_classifier.py \
 -val_data_path 'test_attributes_datasets_seed_42_albert_large.pt'
 ```
 ## 4. Evaluate on stereotypes
+- Run this script with stereotyped tokenized data to evaluate bias in embeddings <br/>
+- Args: <br/>
 ```
 python Stereotyping_bias_test.py \
 -model_path "gender_classifier.pth" \
