@@ -43,6 +43,11 @@
 -val_data_path 'albert_large/test_attributes_datasets_seed_42_albert_large.pt'
 ```
 ## 4. Evaluate on stereotypes
+```
+!python Stereotyping_bias_test.py \
+-model_path "gender_classifier.pth" \
+-evaluation_data_path '../bias_in_bios/bias_in_bios_classifier_fine_tuned_embeddings/intrinsic_bias/datasets/albert_large/stereotype_dataset.pt'
+```
 
 # Requirements
 torch==1.12.1 <br/>
