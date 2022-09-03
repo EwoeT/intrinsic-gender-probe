@@ -48,7 +48,7 @@ python gender_attribute_classifier.py \
 - Run this script with stereotyped tokenized data to evaluate bias in embeddings <br/>
 - Args: <br/>
 - -model_path: path to trained gender detection model <br/>
-- -data_path: path to data for evaluating stereotypes <br/>
+- -data_path: path to tokenized data for evaluating stereotypes <br/>
 
 ```
 python Stereotyping_bias_test.py \
