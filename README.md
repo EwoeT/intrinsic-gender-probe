@@ -2,10 +2,10 @@
 
 ## 1. Data prep
 ## 2. Data tokenization
-- Tokenize sentences; positional indices of attribute/target words are kept for embedding extraction. <br/>
+- Tokenize sentences; positional indices of attribute/target words are kept for embedding extraction.  Use attribute for training the detector and stereotypes to test for bias only<br/>
 - Args: <br/>
 -model_type: type of model "albert-large" or "bert-large <br/>
--data_types: "attributes" for generating tokens for attributes or "stereotypes" for generating tokens for stereotypes. Use attribute for training the detector and stereotypes to test for bias only <br/>
+-data_types: **"attributes"** for generating tokens for attributes and **"stereotypes"** for generating tokens for stereotypes. <br/>
 -data_path: path to data <br/>
 -save_tokenized_data_path: path to save tokenized data <br/>
 -female_list_path: path to female list (attributes or stereotypes) <br/>
