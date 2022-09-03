@@ -1,3 +1,5 @@
+# Code adapted from https://mccormickml.com/2019/07/22/BERT-fine-tuning/
+
 import tensorflow as tf
 import numpy as np
 import torch
