@@ -12,26 +12,14 @@ from torch.utils.data import TensorDataset
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-model_path", required=True)
-# parser.add_argument("-model_type", required=True)
 parser.add_argument("-evaluation_data_path", required=True)
-# parser.add_argument("-female_list_path", required=True)
-# parser.add_argument("-male_list_path", required=True)
-# parser.add_argument("-all_attributes_and_names_path")
-# parser.add_argument("-sequence_length", type=int, default=100)
-# parser.add_argument("-save_tokenized_data_path", default="tokenized_data.pt")
 args = parser.parse_args()
 config = vars(args)
 print(config)
 
 
-# model_type = args.model_type
 model_path = args.model_path
 evaluation_data_path = args.evaluation_data_path
-# female_list_path = args.female_list_path
-# male_list_path = args.male_list_path
-# all_attributes_and_names_path = args.all_attributes_and_names_path
-# save_tokenized_data_path = args.save_tokenized_data_path
-# seq_len = args.sequence_length
 
 
 torch.manual_seed(42) 
@@ -177,8 +165,6 @@ def test(model, test_dataloader):
 
 test_dataloader = DataLoader(
         test_dataset, # The validation samples.
-        # sampler = SequentialSampler(test_dataset), # Pull out batches sequentially.
-        # batch_size = batch_size # Evaluate with this batch size.
         )
 
 test(model, test_dataloader)
