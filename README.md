@@ -14,7 +14,7 @@
 
 - Example:
 ```
-!python tokenize_dataset.py \
+python tokenize_dataset.py \
 -model_type "bert-large" \
 -data_path "data/data.txt" \
 -data_type "stereotypes" \
@@ -35,7 +35,7 @@
 
 - Example:
 ```
-!python gender_attribute_classifier.py \
+python gender_attribute_classifier.py \
 -model_type "albert-large" \
 -model_path "albert-cda/pytorch_model.bin" \
 -epochs 4 \
@@ -44,7 +44,7 @@
 ```
 ## 4. Evaluate on stereotypes
 ```
-!python Stereotyping_bias_test.py \
+python Stereotyping_bias_test.py \
 -model_path "gender_classifier.pth" \
 -evaluation_data_path 'stereotype_dataset.pt'
 ```
