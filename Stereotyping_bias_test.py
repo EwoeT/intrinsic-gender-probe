@@ -167,5 +167,10 @@ test_dataloader = DataLoader(
         test_dataset, # The validation samples.
         )
 
-test(model, test_dataloader)
-time.sleep(4)
+
+def main():    
+    test(model, test_dataloader)
+    time.sleep(4)
+    
+if __name__ == '__main__':
+    main()
