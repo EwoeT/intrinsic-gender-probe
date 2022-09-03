@@ -1,8 +1,8 @@
 # intrinsic_gender_probe
-We use code from https://github.com/kanekomasahiro/context-debias/blob/main/script/preprocess.sh to extract senteces containing attribute abd stereotype words. <br/>
-Extracted sentences are available https://drive.google.com/drive/folders/1dT62-X2mDBjpe8yvd6flJizeF8mcbPpN?usp=sharing
 
 ## 1. Data prep
+- We use code from https://github.com/kanekomasahiro/context-debias/blob/main/script/preprocess.sh to extract senteces containing attribute abd stereotype words. <br/>
+- Extracted sentences are available https://drive.google.com/drive/folders/1dT62-X2mDBjpe8yvd6flJizeF8mcbPpN?usp=sharing
 ## 2. Data tokenization
 - Tokenize sentences; positional indices of attribute/target words are kept for embedding extraction.  Use attribute for training the detector and stereotypes to test for bias only<br/>
 - Args: <br/>
