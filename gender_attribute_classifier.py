@@ -75,7 +75,7 @@ if model_type=="bert-large":
     model.to(device)
 
 
-train_dataset = torch.load(val_data_path)
+train_dataset = torch.load(train_data_path)
 val_dataset = torch.load(val_data_path)
 test_dataset = torch.load(val_data_path)
 
